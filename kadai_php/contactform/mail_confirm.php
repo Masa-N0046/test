@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>お問合わせフォームを作る </title>
-  <link rel="stylesheet" type="text/css" href="style2.css">
-  <!-- php_style2.cssのリンクに飛べないけど反映されてるらしい -->
+  <link rel="stylesheet" type="text/css" href="php_style2.css">
 </head>
 
 <body>
@@ -24,17 +23,24 @@
     </p>
 
     <p> 年齢 <br>
-      <?php echo $_POST['age'] . "歳"; ?>
+      <?php echo $_POST['age']."歳"; ?>
     </p>
     <p> コメント <br>
       <?php echo $_POST['comments']; ?>
     </p>
-    <form action="index.html">
+    <!-- <form method="post" action="php_index.html"> -->
+    <form method="post" action="index.php">
       <input type="submit" class="button1" value="戻って修正する">
+      <!-- 戻って値を追加させるためのコード、以下 -->
+      <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
+      <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+      <input type="hidden" value="<?php echo $_POST['age']; ?>" name="age">
+      <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
     </form>
-    <form action="insert.php" method=“post”>
-      <input type=“text” class="button2" value="登録する">
-      <!-- value="登録"のスタイルがtype=textのように書き換えられるスタイルになっている -->
+    <form method="post" action="insert.php">
+      <!-- セミコロン注意  ""半角  ””全角  検証ツールにて判明 -->
+      <input type="submit" class="button2" value="登録する">
+
       <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
       <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
       <input type="hidden" value="<?php echo $_POST['age']; ?>" name="age">
