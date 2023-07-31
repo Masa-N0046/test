@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script type="text/javascript" src="02script.js"></script> -->
+    <title>プルダウンメニュー</title>
+  </head>
+  <body>
+    <form>
+      <select name="todofuken">
+        <option value="error">選択してください</option>
+        <option value="001">東京</option>
+        <option value="002">神奈川</option>
+        <option value="003">千葉</option>
+        <option value="004">埼玉</option>
+      </select>
+    </form>
+
+    <br>
+
+    <form>
+      <select name="age">
+        <option>選択してください</option>
+        <script>
+          for (var i = 18; i <= 65; i++) {  //意味のあるコード、18歳から65歳までってことが一眼でわかる、
+            // 柔軟性がないとvar i = 0; i <= n + 18; i++とi = 0と変数を固めたくなる
+            document.write("<option>");
+            document.write(i);
+            document.write("</option>");
+          }
+        </script>
+      </select>
+    </form>
+  </body>
+</html>
